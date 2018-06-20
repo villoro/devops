@@ -4,4 +4,6 @@ python:
 install:
   - pip install -r requirements.txt
   - pip install nose pylint
-script: nosetests
+script:
+  - nosetests
+  - pylint src
