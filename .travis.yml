@@ -3,4 +3,5 @@ python:
   - "3.6"
 install:
   - pip install -r requirements.txt
-script: nosetests --with-coverage --cover-package=src
+  - pip install nose pylint
+script: nosetests
