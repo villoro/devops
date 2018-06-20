@@ -1,24 +1,18 @@
-# DevOps: integration between Heroku and Travis CI
+# DevOps example
 
-This is a simple [dash](https://plot.ly/products/dash/) app to test continuous integration with Travis CI and Heroku
+[![Build Status](https://travis-ci.com/villoro/devops_test.svg?branch=master)](https://travis-ci.com/villoro/devops_test) 
+
+This is a simple example to different DevOps stages:
+* Continuous Integration
+* Continuous Delivery
+* Continuous Deployment
+
+The code is [Dash](https://plot.ly/products/dash/) app.
+Continuous Integrations is done with [Travis CI](https://travis-ci.com/).
+And the app is deployed with [Heroku](https://www.heroku.com/).
 
 ## Authors
 * [Arnau Villoro](villoro.com)
 
 ## License
 The content of this repository is licensed under a [MIT](https://opensource.org/licenses/MIT).
-
-## Nomenclature
-Branches and commits use some prefixes to keep everything better organized.
-
-### Branches
-* **f/:** features
-* **r/:** releases
-* **h/:** hotfixs
-
-### Commits
-* **[NEW]** new features
-* **[FIX]** fixes
-* **[REF]** refactors
-* **[PYL]** [pylint](https://www.pylint.org/) improvements
-* **[TST]** tests
