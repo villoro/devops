@@ -1,9 +1,14 @@
 language: python
+
 python:
   - "3.6"
+
 install:
   - pip install -r requirements.txt
-  - pip install nose pylint
+  - pip install coveralls pylint
+
 script:
-  - nosetests
-  - pylint src
+  - nosetests --with-coverage
+
+after_success:
+  - coveralls
