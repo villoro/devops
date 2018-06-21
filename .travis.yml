@@ -11,3 +11,4 @@ after_success:
 deploy:
   provider: heroku
   api_key: c5d50271-ef90-4e8e-8b47-eeae6cb0934d
+  app: villoro-devops
