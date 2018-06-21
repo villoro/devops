@@ -1,14 +1,22 @@
 language: python
 
 python:
-  - "3.6"
+- '3.6'
 
 install:
-  - pip install -r requirements.txt
-  - pip install codecov
+- pip install -r requirements.txt
+- pip install codecov
 
 script:
-  - nosetests --with-coverage --cover-package=src
+- nosetests --with-coverage --cover-package=src
 
 after_success:
-  - codecov
+- codecov
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: tE3bnKxEHn/0s4r6seVMgNNvdkeLjlPR9Yf7wvs9W/keFcNfoP5/GgM6FjzNeLqdzt416wSgGRk35Y78cwfQCk03ZBmYMuWWCbHubCFSLx0QpHBtuv1S8Z1rWxgbhN4J/4vX1WyAswvGDF3qX7LVXcUWDWHq0YOi3U+IH5X6hXJChR4991uG4clpzHW3ZZb4SY1WSf/x2GxCftZSL8vTxqf43WEXLvVdZokdnZ3LQ2qFhsSaLLWUJ8bwM5tFdLXayTn9BFmbHSXuljLorb/z9dkAR1L4vNusy4pNgsk2pV/skGWXF/vbdcJWZRteiCN0w6e2J9tQHhM0BiZxj+8lbu9/O8s8Y6vHMCLLHJWoHhybQ8jmhVtn/Vp7cRQcGHJzOgSP4WsFA4CEN+pGYcHq6DPxUxcC2Z9aw5cKPvRI1rHhvpV1jOkSWT7MlskUIGtXpyXrX1DR77c7j4xKS0olYG/10gUW/2sysYMIDvghrqyZyze28erOkdFZ1RwFIJX8jbeZpDQFaKtiY/RsSK/U9ecIuj+yJMW4FMzPHR7xtyJZfq3Oeh5aujfu6dZ8xxFUMx0PXilDGiMRV+5GNftF5+EIC7lF4aFBcQMxr4PRJ29hIZAQ3VRi1LV5LIcpgXLVcP3pXLFOt0Lf1s1Li9mh7rU7ECf5UhxsEPvELIiXQ44=
+  app: villoro-devops
+  on:
+    repo: villoro/devops
