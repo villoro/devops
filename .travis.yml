@@ -9,7 +9,10 @@ install:
 - pip install selenium==3.4.3
 
 before_script:
-- "python src/index.py"
+- "export DISPLAY=:99.0" #set up xvfb, req'd for webdriver/firefox
+- "sh -e /etc/init.d/xvfb start"
+- "python src/index.py&"
+- "sleep 3"
 
 script:
 - nosetests --with-coverage --cover-package=src
