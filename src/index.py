@@ -5,7 +5,7 @@ import dash_core_components as dcc
 import dash_html_components as html
 
 
-VAUES = ['LA', 'NYC', 'MTL']
+VAUES = ['LA', 'NYC', 'MTL', 'BCN']
 
 app = dash.Dash(__name__)
 SERVER = app.server
