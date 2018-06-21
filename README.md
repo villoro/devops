@@ -1,6 +1,6 @@
 # DevOps example
 
-[![Build Status](https://travis-ci.com/villoro/devops_test.svg?branch=master)](https://travis-ci.com/villoro/devops_test)
+[![Build Status](https://travis-ci.com/villoro/devops.svg?branch=master)](https://travis-ci.com/villoro/devops)
 [![codecov](https://codecov.io/gh/villoro/devops/branch/master/graph/badge.svg)](https://codecov.io/gh/villoro/devops)
 
 This is a simple example for different DevOps stages:
