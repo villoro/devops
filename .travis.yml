@@ -8,8 +8,10 @@ install:
 - pip install codecov
 - pip install selenium==3.4.3
 
+before_script:
+- "python src/index.py"
+
 script:
-- python src/index.py
 - nosetests --with-coverage --cover-package=src
 
 after_success:
