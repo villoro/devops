@@ -13,17 +13,15 @@ def get_chrome_webdriver(headless):
         Returns:		chrome web driver
     """
 
-    chromepath = "/home/travis/virtualenv/python3.6/webdriver"
-
     if headless:
         chrome_options = Options()
         chrome_options.add_argument("--headless")
         chrome_options.add_argument("--window-size=1920x1080")
 
-        return webdriver.Chrome(chrome_options=chrome_options, executable_path=chromepath)
+        return webdriver.Chrome(chrome_options=chrome_options)
 
     else:
-        return webdriver.Chrome(executable_path=chromepath)
+        return webdriver.Chrome()
 
 
 def open_dash(headless=True):

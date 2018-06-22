@@ -14,8 +14,8 @@ install:
 - pip install selenium==3.4.3
 
 before_script:
-- wget http://chromedriver.storage.googleapis.com/2.10/chromedriver_linux64.zip
-- unzip chromedriver_linux64.zip -d /home/travis/virtualenv/python3.6/
+- wget https://chromedriver.storage.googleapis.com/2.40/chromedriver_linux64.zip
+- unzip chromedriver_linux64.zip
 - export CHROME_BIN=chromium-browser
 - "export DISPLAY=:99.0" #set up xvfb, req'd for webdriver/firefox
 - "sh -e /etc/init.d/xvfb start"
