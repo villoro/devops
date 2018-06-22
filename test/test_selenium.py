@@ -1,7 +1,7 @@
 """ Tests the dash app works """
 import unittest
 
-from selenium_utils import open_dash
+from test.selenium_utils import open_dash
 
 class TestApp(unittest.TestCase):
     """ Tests the dash app works """
