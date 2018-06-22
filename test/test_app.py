@@ -11,7 +11,7 @@ class Test_app(unittest.TestCase):
         self.assertIsNotNone(index.SERVER)
 
     def test_server(self):
-    	import os
+        import os
         self.assertEqual(os.getcwd(), "patata")
 
 
