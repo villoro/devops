@@ -1,7 +1,7 @@
 from time import sleep
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-
+import os
 
 def get_chrome_webdriver(headless):
     """
@@ -13,15 +13,19 @@ def get_chrome_webdriver(headless):
         Returns:		chrome web driver
     """
 
+    chromepath = os.path.join(os.getcwd(), "chromedriver")
+
+    print(chromepath)
+
     if headless:
         chrome_options = Options()
         chrome_options.add_argument("--headless")
         chrome_options.add_argument("--window-size=1920x1080")
 
-        return webdriver.Chrome(chrome_options=chrome_options)
+        return webdriver.Chrome(chrome_options=chrome_options, executable_path=chromepath)
 
     else:
-        return webdriver.Chrome()
+        return webdriver.Chrome(executable_path=chromepath)
 
 
 def open_dash(headless=True):
