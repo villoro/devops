@@ -14,14 +14,18 @@ def get_chrome_webdriver(headless):
     """
 
     if headless:
-        chrome_options = Options()
-        chrome_options.add_argument("--headless")
-        chrome_options.add_argument("--window-size=1920x1080")
+        options = Options()
+        options.add_argument("--headless")
+        options.add_argument("--no-sandbox") #This make Chromium reachable
+        options.add_argument("--no-default-browser-check") #Overrides default choices
+        options.add_argument("--no-first-run")
+        options.add_argument("--disable-default-apps") 
+        options.add_argument("--window-size=1920x1080")
 
-        return webdriver.Chrome(chrome_options=chrome_options)
+        return webdriver.Chrome('/home/travis/virtualenv/python3.6/chromedriver', chrome_options=options)
 
     else:
-        return webdriver.Chrome()
+        return webdriver.Chrome('/home/travis/virtualenv/python3.6/chromedriver')
 
 
 def open_dash(headless=True):
