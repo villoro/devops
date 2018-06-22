@@ -12,3 +12,5 @@ __pycache__
 coverage.xml
 nosetests.xml
 pylint.xml
+debug.log
+Test.ipynb

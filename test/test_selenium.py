@@ -1,7 +1,8 @@
 import unittest
 
-from src.utils import open_dash
+from selenium_utils import open_dash
 
+# https://github.com/otron/flask-travis-selenium-minimality/blob/master/tests/seltest.py
 
 class Test_app(unittest.TestCase):
 
