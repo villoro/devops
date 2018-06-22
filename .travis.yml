@@ -1,9 +1,10 @@
 sudo: required
 
 addons:
+  chrome: stable
   apt:
     packages:
-      - google-chrome-stable
+      - chromium-chromedriver
 
 language: python
 

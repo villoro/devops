@@ -36,8 +36,7 @@ def open_dash(headless=True):
         Returns:		chrome web driver
     """
 
-    #driver = get_chrome_webdriver(headless)
-    driver = webdriver.Firefox()
+    driver = get_chrome_webdriver(headless)
 
     # Open dash app
     driver.get("http://localhost:8050/")
