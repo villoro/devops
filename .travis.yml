@@ -18,6 +18,7 @@ before_script:
 - "sleep 3"
 
 script:
+- ls
 - nosetests --with-coverage --cover-package=src
 
 after_success:
