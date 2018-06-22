@@ -16,7 +16,7 @@ install:
 before_script:
 # Get chromedriver
 - wget https://chromedriver.storage.googleapis.com/2.40/chromedriver_linux64.zip
-- unzip chromedriver_linux64.zip
+- unzip chromedriver_linux64.zip -d /home/travis/selenium/
 - export CHROME_BIN=chromium-browser
 
 # Open dash app to test it
