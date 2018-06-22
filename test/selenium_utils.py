@@ -1,7 +1,13 @@
+"""
+    Utilities to get a selenium web driver and to open the dash app.
+    This is only meant for testing purpouses
+"""
+
+import os
+
 from time import sleep
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-import os
 
 SELENIUM_PATH_IN_TRAVIS = '/home/travis/selenium/chromedriver'
 
@@ -20,7 +26,7 @@ def get_chrome_webdriver(headless, driver_path=None):
         options.add_argument("--headless")
         options.add_argument("--no-sandbox") #This make Chromium reachable
         options.add_argument("--no-default-browser-check") #Overrides default choices
-        options.add_argument("--disable-default-apps") 
+        options.add_argument("--disable-default-apps")
         options.add_argument("--window-size=1920x1080")
 
         # Allow custom path for webdriver
@@ -58,6 +64,8 @@ def open_dash(headless=False):
     # Wait until dash is opened
     for _ in range(30):
         sleep(1)
-        
+
         if 'Updating...' not in driver.title:
-            return driver 
+            break
+
+    return driver
