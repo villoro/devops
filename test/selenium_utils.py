@@ -3,7 +3,9 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import os
 
-def get_chrome_webdriver(headless):
+SELENIUM_PATH_IN_TRAVIS = '/home/travis/selenium/chromedriver'
+
+def get_chrome_webdriver(headless, driver_path=None):
     """
         Get a chrome webdriver.
 
@@ -13,8 +15,6 @@ def get_chrome_webdriver(headless):
         Returns:		chrome web driver
     """
 
-    driver_path = '/home/travis/selenium/chromedriver'
-
     if headless:
         options = Options()
         options.add_argument("--headless")
@@ -23,13 +23,18 @@ def get_chrome_webdriver(headless):
         options.add_argument("--disable-default-apps") 
         options.add_argument("--window-size=1920x1080")
 
-        return webdriver.Chrome(driver_path, chrome_options=options)
+        # Allow custom path for webdriver
+        if driver_path is not None:
+            return webdriver.Chrome(driver_path, chrome_options=options)
 
-    else:
-        return webdriver.Chrome(driver_path)
+        # If none provided use default
+        return webdriver.Chrome(chrome_options=options)
+
+    # If headless then use local webdriver
+    return webdriver.Chrome()
 
 
-def open_dash(headless=True):
+def open_dash(headless=False):
     """
         Starts a chrome web driver and opens the dash app. Then it waits until the app is loaded
 
@@ -39,7 +44,13 @@ def open_dash(headless=True):
         Returns:		chrome web driver
     """
 
-    driver = get_chrome_webdriver(headless)
+    # If run from travis it is better to run it headless
+    if "/home/travis/" in os.getcwd():
+        driver = get_chrome_webdriver(headless=True, driver_path=SELENIUM_PATH_IN_TRAVIS)
+
+    # If not, allow both options
+    else:
+        driver = get_chrome_webdriver(headless)
 
     # Open dash app
     driver.get("http://localhost:8050/")
