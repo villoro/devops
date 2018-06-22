@@ -18,7 +18,6 @@ before_script:
 - "sleep 3"
 
 script:
-- python -c "import os; print(os.getcwd())"
 - nosetests --with-coverage --cover-package=src
 
 after_success:

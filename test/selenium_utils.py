@@ -15,8 +15,6 @@ def get_chrome_webdriver(headless):
 
     chromepath = os.path.join(os.getcwd(), "chromedriver")
 
-    print(chromepath)
-
     if headless:
         chrome_options = Options()
         chrome_options.add_argument("--headless")
