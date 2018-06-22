@@ -12,10 +12,14 @@ install:
 - pip install selenium==3.4.3
 
 before_script:
-- "export DISPLAY=:99.0" #set up xvfb, req'd for webdriver/firefox
-- "sh -e /etc/init.d/xvfb start"
-- "python src/index.py&"
-- "sleep 3"
+- wget https://github.com/mozilla/geckodriver/releases/download/v0.21.0/geckodriver-v0.21.0-linux64.tar.gz
+- mkdir geckodriver
+- tar -xzf geckodriver-v0.21.0-linux64.tar.gz -C geckodriver
+- export PATH=$PATH:$PWD/geckodriver
+- export DISPLAY=:99.0 #set up xvfb, req'd for webdriver/firefox
+- sh -e /etc/init.d/xvfb start
+- python src/index.py&
+- sleep 3
 
 script:
 - nosetests --with-coverage --cover-package=src
