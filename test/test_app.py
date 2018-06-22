@@ -10,10 +10,6 @@ class Test_app(unittest.TestCase):
     def test_server(self):
         self.assertIsNotNone(index.SERVER)
 
-    def test_server(self):
-        import os
-        self.assertEqual(os.getcwd(), "patata")
-
 
 
 if __name__ == '__main__':
