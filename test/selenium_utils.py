@@ -23,7 +23,7 @@ def get_chrome_webdriver(headless):
         options.add_argument("--disable-default-apps") 
         options.add_argument("--window-size=1920x1080")
 
-        return webdriver.Chrome(driver_path, chrome_options=options)
+        return webdriver.Chrome(chrome_options=options)
 
     else:
         return webdriver.Chrome(driver_path)
