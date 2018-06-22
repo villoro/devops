@@ -13,7 +13,7 @@ def get_chrome_webdriver(headless):
         Returns:		chrome web driver
     """
 
-    chromepath = os.path.join(os.getcwd(), "chromedriver")
+    chromepath = "/home/travis/virtualenv/python3.6/webdriver"
 
     if headless:
         chrome_options = Options()
