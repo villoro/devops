@@ -1,16 +1,22 @@
+"""
+    Dash app
+"""
+
+
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
 
 
-VAUES = ['MTL', 'BCN']
+VAUES = ['MTL', 'BCN', 'QUE']
 
-app = dash.Dash(__name__)
-SERVER = app.server
+APP = dash.Dash(__name__)
+SERVER = APP.server
 
-app.css.append_css({"external_url": "https://codepen.io/chriddyp/pen/bWLwgP.css"})
+# TODO: change url
+APP.css.append_css({"external_url": "https://codepen.io/chriddyp/pen/bWLwgP.css"})
 
-app.layout = html.Div([
+APP.layout = html.Div([
     html.H2('Hello World'),
     dcc.Dropdown(
         id='dropdown',
@@ -20,10 +26,14 @@ app.layout = html.Div([
     html.Div(id='display-value')
 ])
 
-@app.callback(dash.dependencies.Output('display-value', 'children'),
+
+@APP.callback(dash.dependencies.Output('display-value', 'children'),
               [dash.dependencies.Input('dropdown', 'value')])
 def display_value(value):
+    """ Update value selected """
     return 'You have selected "{}"'.format(value)
 
+
+
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    APP.run_server(debug=True)
