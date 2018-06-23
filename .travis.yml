@@ -12,6 +12,7 @@ install:
 - pip install -r requirements.txt
 - pip install codecov
 - pip install selenium==3.4.3
+- pip install pylint==1.8.1
 
 before_script:
 # Get chromedriver
@@ -20,13 +21,14 @@ before_script:
 - export CHROME_BIN=chromium-browser
 
 # Open dash app to test it
-- "export DISPLAY=:99.0" #set up xvfb, req'd for webdriver/firefox
+- "export DISPLAY=:99.0" # set up xvfb, req'd for webdriver/firefox
 - "sh -e /etc/init.d/xvfb start"
 - "python src/index.py&"
 - "sleep 3"
 
 script:
 - nosetests --with-coverage --cover-package=src
+- pylint --disable=W src test # Ignore warnings, only critial/errors would be a KO
 
 after_success:
 - codecov

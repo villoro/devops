@@ -8,7 +8,7 @@ class TestApp(unittest.TestCase):
 
     def test_values(self):
         """ Test the list of values in index """
-        self.assertEqual(index.VAUES, ['MTL', 'BCN'])
+        self.assertEqual(index.VAUES, ['MTL', 'BCN', 'QUE'])
 
     def test_server(self):
         """ Test that there is a server in index """
