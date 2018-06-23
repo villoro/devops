@@ -12,6 +12,7 @@ install:
 - pip install -r requirements.txt
 - pip install codecov
 - pip install selenium==3.4.3
+- pip install pylint==1.8.1
 
 before_script:
 # Get chromedriver
@@ -27,6 +28,7 @@ before_script:
 
 script:
 - nosetests --with-coverage --cover-package=src
+- pylint src test
 
 after_success:
 - codecov
